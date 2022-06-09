@@ -1,10 +1,9 @@
 <?php
 
-$Vezetek_nev = "Toldi";
-$Kereszt_nev = "Richárd";
+$file = 'extras/valami.txt';
 
-echo "{$Vezetek_nev} {$Kereszt_nev} <br>";
-
-
-echo $Vezetek_nev . "<br>";
-echo $Kereszt_nev . "<br>";
+if (file_exists($file)) {
+    $handle = fopen($file,'r');
+    $content = fread($handle, filesize($file));
+    echo $content;
+}

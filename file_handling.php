@@ -20,11 +20,21 @@ if (file_exists($file)) {
   // fopen() gives you more control over the file.
   // Modes: r, w, a, x, r+, w+, a+, x+ See below for details
   $handle = fopen($file, 'r');
+
+  echo 'Ez a print_r: ' . '<br>';
+  print_r($handle);
+  echo '<br>';
+  echo 'Ez egy echo: ' . $handle;
+  echo '<br>';
+
   // fread() reads the file and returns the content as a string on success, or FALSE on failure.
   $contents = fread($handle, filesize($file));
+  
   // fclose() closes the file resource on success, or FALSE on failure.
   fclose($handle);
-  echo $contents;
+
+  echo 'Ez a content: ' . $contents;
+
 } else {
   // Create the file
   $handle = fopen($file, 'w');
