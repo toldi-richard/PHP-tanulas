@@ -178,3 +178,5 @@ if ($xlsx = SimpleXLSX::parse('extras/teszt.xlsx')) {
     print_r($rows[0]);
     echo 'Ez az egyik mező: ' . $rows[0][1];
 }
+
+// https://github.com/shuchkin/simplexlsx
