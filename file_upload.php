@@ -5,20 +5,21 @@
 
   $allowed_ext = array('png', 'jpg', 'jpeg', 'gif');
 
- if(isset($_POST['submit'])) {
+ if(isset($_POST['submit'])) { // submitra kattintottak-e
    // Check if file was uploaded
+
    if(!empty($_FILES['upload']['name'])) {
     $file_name = $_FILES['upload']['name'];
     $file_size = $_FILES['upload']['size'];
     $file_tmp = $_FILES['upload']['tmp_name'];
-    $target_dir = "uploads/${file_name}";
+    $target_dir = "uploads/${file_name}"; // ahova fel akarom tölteni
     // Get file extension
-    $file_ext = explode('.', $file_name);
-    $file_ext = strtolower(end($file_ext));
+    $file_ext = explode('.', $file_name); // tömböt csinál a stringből . -ok mentén feladabolja
+    $file_ext = strtolower(end($file_ext)); // a tömb utolsó elemét adja vissza
     // echo $file_ext;
 
     // Validate file type/extension
-    if(in_array($file_ext, $allowed_ext)) {
+    if(in_array($file_ext, $allowed_ext)) { // tömbben keresés, első amiben keresek, második amit keresek
       // Validate file size
       if($file_size <= 1000000) { // 1000000 bytes = 1MB
         // Upload file
@@ -47,10 +48,15 @@
     <title>File Upload</title>
   </head>
   <body>
+
     <?php echo $message ?? null; ?>
-  <form action="<?php echo htmlspecialchars(
-    $_SERVER['PHP_SELF']
-  ); ?>" method="post" enctype="multipart/form-data">
+
+  <form action=
+
+  "<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"
+
+  method="post" enctype="multipart/form-data">
+
     Select image to upload:
   <input type="file" name="upload">
   <input type="submit" value="Submit" name="submit">
