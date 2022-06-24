@@ -24,5 +24,3 @@ The video covers all the basic things about PHP.
     - File uploading and file validation
     - Working with mysql
  - Composer and autoloading
-
-T
